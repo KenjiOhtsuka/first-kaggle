@@ -31,34 +31,34 @@ n_out = len(y_train[0])
 
 model = Sequential()
 
-# model.add(Dense(n_hidden, input_dim=n_in))
-# model.add(Activation('sigmoid'))
-# model.add(Dense(n_out))
-# model.add(Activation('softmax'))
-# model.compile(loss='categorical_crossentropy',
-#               optimizer=optimizers.SGD(lr=0.01),
-#               metrics=['accuracy'])
-
 model.add(Dense(n_hidden, input_dim=n_in))
-model.add(Activation('relu'))
-
-model.add(Dense(n_hidden))
-model.add(Activation('relu'))
-
-model.add(Dense(n_hidden))
-model.add(Activation('relu'))
-
-model.add(Dense(n_hidden))
-model.add(Activation('relu'))
-
+model.add(Activation('sigmoid'))
 model.add(Dense(n_out))
 model.add(Activation('softmax'))
-
 model.compile(loss='categorical_crossentropy',
               optimizer=optimizers.SGD(lr=0.01),
               metrics=['accuracy'])
 
-epochs = 3
+# model.add(Dense(n_hidden, input_dim=n_in))
+# model.add(Activation('relu'))
+#
+# model.add(Dense(n_hidden))
+# model.add(Activation('relu'))
+#
+# model.add(Dense(n_hidden))
+# model.add(Activation('relu'))
+#
+# model.add(Dense(n_hidden))
+# model.add(Activation('relu'))
+#
+# model.add(Dense(n_out))
+# model.add(Activation('softmax'))
+#
+# model.compile(loss='categorical_crossentropy',
+#               optimizer=optimizers.SGD(lr=0.01),
+#               metrics=['accuracy'])
+
+epochs = 2000
 batch_size = 100
 
 model.fit(x_train, y_train, epochs=epochs, batch_size=batch_size)
